@@ -7,13 +7,13 @@
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
+    <servlet-name>reportServlet</servlet-name>
     <servlet-class>com.softhis.server.service.ClientServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/SimpleReportApp/greet</url-pattern>
+    <servlet-name>reportServlet</servlet-name>
+    <url-pattern>/SimpleReportApp/report</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->

@@ -1,13 +1,13 @@
 package com.softhis.server.model;
 
 import org.hibernate.annotations.Type;
-import org.joda.time.LocalTime;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="ORDER")
+@Table(name = "ORDER")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +18,8 @@ public class Order {
     private Client client;
 
     @Column(name = "ORDER_DATE", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private LocalTime orderDate;
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private Date orderDate;
 
     @OneToMany
     private List<OrderElement> orderElements;
@@ -27,7 +27,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Client client, LocalTime orderDate, List<OrderElement> orderElements) {
+    public Order(Client client, Date orderDate, List<OrderElement> orderElements) {
         this.client = client;
         this.orderDate = orderDate;
         this.orderElements = orderElements;
@@ -41,11 +41,11 @@ public class Order {
         this.id = id;
     }
 
-    public LocalTime getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalTime orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

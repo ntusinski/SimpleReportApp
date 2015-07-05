@@ -1,27 +1,26 @@
 package com.softhis.shared.dto;
 
-import org.joda.time.LocalTime;
-
 import java.io.Serializable;
+import java.util.Date;
 
 public class ReportOrderDto implements Serializable {
-    LocalTime orderDate;
+    Date orderDate;
 
     int amount;
 
     public ReportOrderDto() {
     }
 
-    public ReportOrderDto(LocalTime orderDate, int amount) {
+    public ReportOrderDto(Date orderDate, int amount) {
         this.orderDate = orderDate;
         this.amount = amount;
     }
 
-    public LocalTime getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalTime orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

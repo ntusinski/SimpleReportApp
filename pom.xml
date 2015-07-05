@@ -19,7 +19,6 @@
     <springframework.version>4.1.0.RELEASE</springframework.version>
     <hibernate.version>4.3.6.Final</hibernate.version>
     <mysql.connector.version>5.1.6</mysql.connector.version>
-    <joda-time.version>2.3</joda-time.version>
   </properties>
 
   <dependencies>
@@ -57,20 +56,6 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
-    </dependency>
-
-    <!-- Joda-Time -->
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <version>${joda-time.version}</version>
-    </dependency>
-
-    <!-- To map JodaTime with database type -->
-    <dependency>
-      <groupId>org.jadira.usertype</groupId>
-      <artifactId>usertype.core</artifactId>
-      <version>3.0.0.CR1</version>
     </dependency>
 
     <!-- GWT -->
@@ -146,7 +131,7 @@
             <module>com.softhis.SimpleReportApp</module>
           </modules>
           <compileSourcesArtifacts>
-            <compileSourcesArtifact>com.softhis:SimpleReportApp</compileSourcesArtifact>
+            <compileSourcesArtifact>com.google.gwt:gwt-user</compileSourcesArtifact>
           </compileSourcesArtifacts>
         </configuration>
       </plugin>
