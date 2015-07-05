@@ -19,6 +19,15 @@ public class Client {
     @OneToMany
     private List<Order> orders;
 
+    public Client() {
+    }
+
+    public Client(String firstName, String lastName, List<Order> orders) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.orders = orders;
+    }
+
     public int getId() {
         return id;
     }

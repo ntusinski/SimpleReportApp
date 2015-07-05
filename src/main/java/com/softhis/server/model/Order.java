@@ -24,6 +24,15 @@ public class Order {
     @OneToMany
     private List<OrderElement> orderElements;
 
+    public Order() {
+    }
+
+    public Order(Client client, LocalTime orderDate, List<OrderElement> orderElements) {
+        this.client = client;
+        this.orderDate = orderDate;
+        this.orderElements = orderElements;
+    }
+
     public int getId() {
         return id;
     }
@@ -46,6 +55,14 @@ public class Order {
 
     public void setOrderElements(List<OrderElement> orderElements) {
         this.orderElements = orderElements;
+    }
+
+    public int getOrderAmount() {
+        int amount = 0;
+        for (OrderElement element : orderElements) {
+            amount += element.getAmount();
+        }
+        return amount;
     }
 
     @Override

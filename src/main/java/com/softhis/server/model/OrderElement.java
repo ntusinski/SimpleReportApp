@@ -19,6 +19,15 @@ public class OrderElement {
     @Column(name = "AMOUNT", nullable = false)
     private int amount;
 
+    public OrderElement() {
+    }
+
+    public OrderElement(Order order, String name, int amount) {
+        this.order = order;
+        this.name = name;
+        this.amount = amount;
+    }
+
     public int getId() {
         return id;
     }
