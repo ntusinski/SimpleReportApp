@@ -11,6 +11,7 @@
   <inherits name='com.google.gwt.user.theme.dark.Dark'/>
 
   <!-- Other module inherits                                      -->
+  <inherits name="com.google.gwt.logging.Logging"/>
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.softhis.client.SimpleReportApp' />
@@ -18,5 +19,10 @@
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />
   <source path='shared' />
+
+  # To change the default logLevel
+  <set-property name="gwt.logging.logLevel" value="INFO"/>
+  # To enable logging
+  <set-property name="gwt.logging.enabled" value="TRUE"/>
 
 </module>

@@ -7,6 +7,8 @@ import com.softhis.server.model.Order;
 import com.softhis.shared.dto.ReportLineDto;
 import com.softhis.shared.dto.ReportOrderDto;
 import com.softhis.shared.service.ClientService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +21,21 @@ import java.util.List;
 @Service("clientService")
 @Transactional
 public class ClientServiceImpl extends RemoteServiceServlet implements ClientService {
+    private static final Logger LOGGER = LogManager.getLogger(ClientServiceImpl.class.getSimpleName());
+
     @Autowired
     private ClientDao clientDao;
 
     public List<ReportLineDto> getClientReport(int numberOfExpensiveListed) throws IllegalArgumentException {
-        List<Client> clients = clientDao.getClients();
+        LOGGER.info("ClientServiceImpl.getClientReport()");
+
+        List<Client> clients = null;
+        try {
+            clients = clientDao.getClients();
+        } catch (Exception e) {
+            LOGGER.error(e);
+        }
+
         List<ReportLineDto> result = new ArrayList<>();
 
         for (Client client : clients) {

@@ -3,11 +3,20 @@ package com.softhis.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.softhis.shared.dto.ReportLineDto;
 import com.softhis.shared.service.ClientService;
 import com.softhis.shared.service.ClientServiceAsync;
 
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class SimpleReportApp implements EntryPoint {
+    private static final Logger LOGGER = Logger.getLogger(SimpleReportApp.class.getSimpleName());
+
     private static final String SERVER_ERROR = "An error occurred while "
             + "attempting to contact the server. Please check your network "
             + "connection and try again.";
@@ -91,24 +100,26 @@ public class SimpleReportApp implements EntryPoint {
                 sendButton.setEnabled(false);
                 textToServerLabel.setText(textToServer);
                 serverResponseLabel.setText("");
-//        clientService.getClientReport(3, new AsyncCallback<List<ReportLineDto>>() {
-//          public void onFailure(Throwable caught) {
-//            // Show the RPC error message to the user
-//            dialogBox.setText("Remote Procedure Call - Failure");
-//            serverResponseLabel.addStyleName("serverResponseLabelError");
-//            serverResponseLabel.setHTML(SERVER_ERROR);
-//            dialogBox.center();
-//            closeButton.setFocus(true);
-//          }
-//
-//          public void onSuccess(List<ReportLineDto> result) {
-//            dialogBox.setText("Remote Procedure Call");
-//            serverResponseLabel.removeStyleName("serverResponseLabelError");
-//            serverResponseLabel.setHTML("aaaaa");
-//            dialogBox.center();
-//            closeButton.setFocus(true);
-//          }
-//        });
+                clientService.getClientReport(3, new AsyncCallback<List<ReportLineDto>>() {
+                    public void onFailure(Throwable caught) {
+                        LOGGER.log(Level.SEVERE, caught.toString());
+
+                        // Show the RPC error message to the user
+                        dialogBox.setText("Remote Procedure Call - Failure");
+                        serverResponseLabel.addStyleName("serverResponseLabelError");
+                        serverResponseLabel.setHTML(SERVER_ERROR);
+                        dialogBox.center();
+                        closeButton.setFocus(true);
+                    }
+
+                    public void onSuccess(List<ReportLineDto> result) {
+                        dialogBox.setText("Remote Procedure Call");
+                        serverResponseLabel.removeStyleName("serverResponseLabelError");
+                        serverResponseLabel.setHTML("aaaaa");
+                        dialogBox.center();
+                        closeButton.setFocus(true);
+                    }
+                });
             }
         }
 
