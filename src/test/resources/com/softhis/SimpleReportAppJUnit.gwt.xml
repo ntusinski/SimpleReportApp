@@ -4,6 +4,6 @@
   <inherits name='com.softhis.SimpleReportApp' />
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/SimpleReportApp/greet" class="com.softhis.server.GreetingServiceImpl" />
+  <servlet path="/SimpleReportApp/greet" class="com.softhis.server.service.GreetingServiceImpl" />
 
 </module>

@@ -1,6 +1,6 @@
-package com.softhis.server;
+package com.softhis.server.service;
 
-import com.softhis.client.GreetingService;
+import com.softhis.shared.service.GreetingService;
 import com.softhis.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 

@@ -1,4 +1,4 @@
-package com.softhis.client;
+package com.softhis.shared.service;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;

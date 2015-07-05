@@ -16,6 +16,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.softhis.shared.service.GreetingService;
+import com.softhis.shared.service.GreetingServiceAsync;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
